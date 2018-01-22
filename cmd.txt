@@ -1,0 +1,4 @@
+set .env config first
+php artisan serve
+php artisan make:model Post -m
+php artisan migrate
