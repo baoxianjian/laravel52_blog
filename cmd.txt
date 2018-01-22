@@ -8,7 +8,7 @@ php artisan make:model Post -m
 php artisan migrate
 
 
-#post data
+#build fake data using migrate
 php artisan make:seed PostsTableSeeder
 
 php artisan tinker
@@ -25,5 +25,8 @@ $faler->text
 
 php artisan db:seed
 
+
+#make controller
+php artisan make:controller BlogController
 
 
