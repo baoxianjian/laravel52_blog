@@ -1,4 +1,29 @@
-set .env config first
+#run
 php artisan serve
+
+
+#create table
+set .env config first
 php artisan make:model Post -m
 php artisan migrate
+
+
+#post data
+php artisan make:seed PostsTableSeeder
+
+php artisan tinker
+$faker = Faker\Factory::create();
+$faker->word
+$faker->sentence
+$faker->sentences
+$faker->sentences(6)
+$faker->sentences(6,true) //one string
+$faler->paragraph
+$faler->paragraphs
+$faler->paragraphs(10) 
+$faler->text
+
+php artisan db:seed
+
+
+
