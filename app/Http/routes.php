@@ -13,7 +13,7 @@
 
 Route::get('/', 
         //function () {return view('blog.index');}
-        ['uses'=>'BlogController@index']
+        ['uses'=>'BlogController@index','as'=>'blog']
 );
 
 

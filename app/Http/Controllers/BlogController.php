@@ -19,7 +19,8 @@ class BlogController extends Controller
         //$posts = Post::with('author')->latest()->get(); //orderBy('created_at','desc')的同义词
         //$posts = Post::with('author')->latestFirst()->get(); //自定义的
         //$posts = Post::with('author')->latestFirst()->paginate(3); //分页
-        $posts = Post::with('author')->latestFirst()->simplePaginate($this->limit); //分页（生成简单的页码）
+        //$posts = Post::with('author')->latestFirst()->simplePaginate($this->limit); //分页（生成简单的页码）
+        $posts = Post::with('author')->published()->simplePaginate($this->limit); //分页（生成简单的页码）
         //view('blog.index',compact('posts'))->render();
         //dd(\DB::getQueryLog());
         
