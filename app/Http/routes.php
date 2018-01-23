@@ -17,7 +17,7 @@ Route::get('/',
 );
 
 
-Route::get('/blog/show', function () {
-    //return view('welcome');
-	return view('blog.show');
-});
+Route::get('/blog/{post}', 
+        //function () {return view('blog.show');}
+        ['uses'=>'BlogController@show', 'as'=>'blog.show']
+        );
