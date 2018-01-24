@@ -13,6 +13,7 @@ class BlogController extends Controller
     
     public function index()
     {
+        //echo strtolower('CHONGQING WANGGUAN CULTURE COMMUNICATION CO., LTD.');
         //\DB::enableQueryLog();
         //$posts = Post::all(); //10条
         //$posts = Post::with('author')->orderBy('created_at','desc')->get(); //2条
@@ -29,9 +30,9 @@ class BlogController extends Controller
     }
 
     
-    public function show($id)
+    public function show(Post $post)
     {
-        $post = Post::findOrFail($id);
+        //$post = Post::published()->findOrFail($id);
         return view('blog.show', compact('post'));
     }
     
