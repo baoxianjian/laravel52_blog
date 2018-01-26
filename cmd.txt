@@ -35,3 +35,7 @@ php artisan make:controller BlogController
 php artisan make:migration alter_posts_add_published_at_column --table=posts
 删除migration文件后要执行:composer dump-autoload
 php artisan migrate
+
+
+#markdown
+search laravel markdown
