@@ -39,3 +39,4 @@ php artisan migrate
 
 #markdown
 search laravel markdown
+https://github.com/GrahamCampbell/Laravel-Markdown
