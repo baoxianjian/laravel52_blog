@@ -40,3 +40,13 @@ php artisan migrate
 #markdown
 search laravel markdown
 https://github.com/GrahamCampbell/Laravel-Markdown
+
+#category
+php artisan make:migration create_categories_table --create=categories
+php artisan make:migration alter_posts_add_category_id_column
+php artisan make:migration alter_posts_add_category_id_column --table=post
+composer dump-autoload
+php artisan migrate
+php artisan migrate:refresh
+php artisan make:seeder CategoriesTableSeeder
+php artisan db:seed
