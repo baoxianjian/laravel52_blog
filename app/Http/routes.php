@@ -20,4 +20,9 @@ Route::get('/',
 Route::get('/blog/{post}', 
         //function () {return view('blog.show');}
         ['uses'=>'BlogController@show', 'as'=>'blog.show']
-        );
+);
+
+Route::get('/category/{category}', 
+        //function () {return view('blog.show');}
+        ['uses'=>'BlogController@category', 'as'=>'category']
+);

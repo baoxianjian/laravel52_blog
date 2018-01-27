@@ -50,3 +50,7 @@ php artisan migrate
 php artisan migrate:refresh
 php artisan make:seeder CategoriesTableSeeder
 php artisan db:seed
+
+
+#filter by category
+php artisan make:model Category
