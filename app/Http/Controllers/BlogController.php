@@ -14,10 +14,14 @@ class BlogController extends Controller
     
     public function index()
     {
+        /*
+        //use ComposerServiceProvider for common things
         //$categories = Category::orderBy('title','asc')->get();
         $categories = Category::with(['posts'=>function($query){
             $query->published();
         }])->orderBy('title','asc')->get();
+        */
+        
         //echo strtolower('CHONGQING WANGGUAN CULTURE COMMUNICATION CO., LTD.');
         //\DB::enableQueryLog();
         //$posts = Post::all(); //10条
@@ -34,12 +38,15 @@ class BlogController extends Controller
         return view('blog.index',compact('posts','categories'));
     }
     
-    public function category($category_id)
+    public function category(Category $category)
     {
+        /*
         //$categories = Category::orderBy('title','asc')->get();
         $categories = Category::with(['posts'=>function($query){
             $query->published();
         }])->orderBy('title','asc')->get();
+        */
+        
         //echo strtolower('CHONGQING WANGGUAN CULTURE COMMUNICATION CO., LTD.');
         //\DB::enableQueryLog();
         //$posts = Post::all(); //10条
@@ -48,17 +55,25 @@ class BlogController extends Controller
         //$posts = Post::with('author')->latestFirst()->get(); //自定义的
         //$posts = Post::with('author')->latestFirst()->paginate(3); //分页
         //$posts = Post::with('author')->latestFirst()->simplePaginate($this->limit); //分页（生成简单的页码）
-        $posts = Post::with('author')->published()->where('category_id',$category_id)->simplePaginate($this->limit); //分页（生成简单的页码）
+        //$posts = Post::with('author')->published()->where('category_id',$category_id)->simplePaginate($this->limit); //分页（生成简单的页码）
         //view('blog.index',compact('posts'))->render();
         //dd(\DB::getQueryLog());
         
-        //echo 'xxxxxxxxxx';
+        //$posts = Post::with('author')->published()->where('category_id',$category_id)->simplePaginate($this->limit); //分页（生成简单的页码）
+        $posts = $category->posts()->with('author')->latestFirst()->published()->simplePaginate($this->limit);//->with('author')->latestFirst()->published()->simplePaginate($this->limit); //另一种方法
+        
         return view('blog.index',compact('posts','categories'));
     }
 
     
     public function show(Post $post)
     {
+        /*
+        //$categories = Category::orderBy('title','asc')->get();
+        $categories = Category::with(['posts'=>function($query){
+            $query->published();
+        }])->orderBy('title','asc')->get();
+        */
         //$post = Post::published()->findOrFail($id);
         return view('blog.show', compact('post'));
     }

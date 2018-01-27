@@ -54,3 +54,5 @@ php artisan db:seed
 
 #filter by category
 php artisan make:model Category
+
+php artisan make:provider ComposerServiceProvider

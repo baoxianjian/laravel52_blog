@@ -42,9 +42,9 @@ class Post extends Model
         return $this->excerpt ? Markdown::convertToHtml(e($this->excerpt)) : null;
     }
             
-    public function scopeLatestFirst()
+    public function scopeLatestFirst($query)
     {
-        return $this->orderBy('created_at','desc');
+        return $query->orderBy('created_at','desc');
     }
     
     public function scopePublished($query)
